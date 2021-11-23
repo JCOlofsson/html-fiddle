@@ -22,8 +22,12 @@
     <script>
         // Listen to all click events.
         document.querySelector("body").addEventListener("click", e => {
-            // If the click event was made from an element with attribute "dropdown-trigger"
-            if(e.target.hasAttribute("dropdown-trigger")){
+            /* 
+            If the click event was made from:
+                - an element with attribute "dropdown-trigger" OR
+                - from an element located within an element with attribute "dropdown-trigger".
+            */
+            if(e.target.hasAttribute("dropdown-trigger") || e.target.closest("[dropdown-trigger]")){
                 // If that element is placed within en element with attribute "dropdown-container"
                 const dropdownContainer = e.target.closest("[dropdown-container]")
                 if(dropdownContainer){
